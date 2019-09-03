@@ -12,9 +12,9 @@ $extension = "Xml" #or json
 
 ```
 
-`Output Structure:` 
-![](AdditionalResources\json_Structure.png)
-![](AdditionalResources\xml_Structure.png)
+`Output structure:` 
+![](AdditionalResources/json_Structure.png)
+![](AdditionalResources/xml_Structure.png)
 
 `Download:`
-[Donwnload exe file](AdditionalResources\ProgramExe.zip).
+[Donwnload exe file](AdditionalResources/ProgramExe.zip).
