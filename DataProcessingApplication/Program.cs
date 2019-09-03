@@ -23,7 +23,7 @@ namespace DataProcessingApplication
                 OutputModel outputModel = transformToOutput(loadedGroups);
 
                 //save file
-                string filePath = Environment.CurrentDirectory;
+                string filePath = AppDomain.CurrentDomain.BaseDirectory;
                 saveFile(filePath, input[1], "all", outputModel);
             }
         }
@@ -121,19 +121,18 @@ namespace DataProcessingApplication
         /// <param name="loadedGroups">data for serialization</param>
         private static void saveFile(string filePath,string extension, string fileName, OutputModel loadedGroups)
         {
-            //var itemForSerialization = new OutputStudentModel();
-            //itemForSerialization.LoadData(loadedGroups[0].StudentList[0]);
-
             string fullpath;
             switch (extension)
             {
                 case "xml":
                     fullpath = Path.Combine(filePath, fileName + ".xml");
                     FileSaver.serialToXmlFile(fullpath, loadedGroups);
+                    Console.WriteLine($"File saved to {fullpath}");
                     break;
                 case "json":
                     fullpath = Path.Combine(filePath, fileName + ".json");
                     FileSaver.serialToJsonFile(fullpath, loadedGroups);
+                    Console.WriteLine($"File saved to {fullpath}");
                     break;
                 default:
                     Console.WriteLine($"Not valid type of extension: '{extension}'");

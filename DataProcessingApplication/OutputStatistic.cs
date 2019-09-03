@@ -12,6 +12,7 @@ namespace DataProcessingApplication
     /// sub model to store all calculated information
     /// </summary>
     [DataContract]
+    [XmlType(TypeName = "Statistics")]
     public class OutputStatistic
     {
         [DataMember]
@@ -33,12 +34,15 @@ namespace DataProcessingApplication
         public double MedianEnglish { get; set; }
 
         [DataMember]
+        [XmlArray]
         public List<int> ModusMath { get; set; }
 
         [DataMember]
+        [XmlArray]
         public List<int> ModusPhysics { get; set; }
 
         [DataMember]
+        [XmlArray]
         public List<int> ModusEnglish { get; set; }
 
         /// <summary>

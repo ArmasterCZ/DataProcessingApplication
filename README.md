@@ -1,8 +1,8 @@
 # DataProcessingApplication
 
-`Name:` GZipTest, `Date:` 2019.09.03, `Project:` Visual studio 2019, `Framework:` 4.7.2, `Program language:` English, `Comments:` English, `Description:` CMD program for generate Xml or Json from specific txt file. (generate all.xml in same place of exe file)
+`Name:` DataProcessingApplication, `Date:` 2019.09.03, `Project:` Visual studio 2019, `Framework:` 4.7.2, `Program language:` English, `Comments:` English, `Description:` CMD program for generate Xml or Json from specific txt file. (generate all.xml in same place like exe file)
 
-`Powershell script for demonstration how use DataProcessingApplication` 
+`Powershell script for demonstration how to use DataProcessingApplication` 
 
 ```powershell
 $pathToExe = "C:\Users\User123\source\repos\29.8.2019_DataProcessingApplication\DataProcessingApplication\bin\Debug\DataProcessingApplication.exe"
@@ -11,3 +11,10 @@ $extension = "Xml" #or json
 & $pathToExe $pathToData $extension
 
 ```
+
+`Output Structure:` 
+![](AdditionalResources\json_Structure.png)
+![](AdditionalResources\xml_Structure.png)
+
+`Download:`
+[Donwnload exe file](AdditionalResources\ProgramExe.zip).

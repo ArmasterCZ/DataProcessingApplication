@@ -12,9 +12,11 @@ namespace DataProcessingApplication
     /// display information about student
     /// </summary>
     [DataContract]
+    [XmlType(TypeName = "Student")]
     public class OutputStudentModel
     {
         [DataMember]
+        [XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
 
         [DataMember]

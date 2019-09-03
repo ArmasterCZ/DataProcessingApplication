@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DataProcessingApplication
 {
@@ -13,6 +14,7 @@ namespace DataProcessingApplication
     /// last one is <see cref="OutputStudentModel"/>
     /// </summary>
     [DataContract]
+    [XmlRoot(ElementName = "Root")]
     public class OutputModel
     {
         [DataMember]
@@ -29,10 +31,11 @@ namespace DataProcessingApplication
             StudentGroup globalGroup = new StudentGroup() { Name = "Global statistic" };
             foreach (var group in groups)
             {
+                //add data to local groups
                 OutputGroup outputGroup = new OutputGroup();
                 outputGroup.LoadData(group);
                 this.Groups.Add(outputGroup);
-
+                //prepare for statistic calculation
                 globalGroup.StudentList.AddRange(group.StudentList);
             }
             Statistics.LoadData(globalGroup);

@@ -13,19 +13,22 @@ namespace DataProcessingApplication
     /// Need to be loaded thrue <see cref="LoadData(StudentGroup)"/>
     /// </summary>
     [DataContract]
+    [XmlType(TypeName = "Group")]
     public class OutputGroup
     {
         [DataMember(Name = "GroupName")]
-        [XmlElement(ElementName = "GroupName")]
+        [XmlAttribute(AttributeName = "GroupName")]
         public string Name { get; set; }
 
         [DataMember]
         public OutputStatistic Statistics { get; set; } = new OutputStatistic();
 
-        [DataMember]
+        [DataMember(Name = "Students")]
+        [XmlArray (ElementName = "Students")]
         public List<OutputStudentModel> StudentList { get; set; } = new List<OutputStudentModel>();
 
-        [DataMember]
+        [DataMember(Name = "Errors")]
+        [XmlArray(ElementName = "Errors")]
         public List<ErrorModel> ErrorList { get; set; } = new List<ErrorModel>();
 
 
