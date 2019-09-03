@@ -17,4 +17,4 @@ $extension = "Xml" #or json
 ![](AdditionalResources/xml_Structure.png)
 
 `Download:`
-[Donwnload exe file](AdditionalResources/ProgramExe.zip).
+[Compressed exe file](AdditionalResources/ProgramExe.zip).
