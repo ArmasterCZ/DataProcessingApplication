@@ -1,6 +1,6 @@
 # DataProcessingApplication
 
-`Name:` DataProcessingApplication, `Date:` 2019.09.03, `Project:` Visual studio 2019, `Framework:` 4.7.2, `Program language:` English, `Comments:` English, `Description:` CMD program for generate Xml or Json from specific txt file. (generate all.xml in same place like exe file)
+`Name:` DataProcessingApplication, `Date:` 2019.09.03, `Project:` Visual studio 2019, `Framework:` 4.7.2, `Program language:` C#, `UI language:` English, `Comments:` English, `Description:` CMD program for generate Xml or Json from specific txt file. (generate all.xml in same place like exe file)
 
 `Powershell script for demonstration how to use DataProcessingApplication` 
 
