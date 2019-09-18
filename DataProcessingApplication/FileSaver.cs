@@ -14,7 +14,7 @@ namespace DataProcessingApplication
     /// </summary>
     class FileSaver
     {
-        public static void serialToXmlFile<T>(string FilePath, T studentToSave)
+        public static void SerialToXmlFile<T>(string FilePath, T studentToSave)
         {
             using (FileStream fs = new FileStream(FilePath, FileMode.Create, FileAccess.Write))
             {
@@ -23,7 +23,7 @@ namespace DataProcessingApplication
             }
         }
 
-        public static void serialToJsonFile<T>(string FilePath, T studentToSave)
+        public static void SerialToJsonFile<T>(string FilePath, T studentToSave)
         {
             using (FileStream fs = new FileStream(FilePath, FileMode.Create, FileAccess.Write))
             {

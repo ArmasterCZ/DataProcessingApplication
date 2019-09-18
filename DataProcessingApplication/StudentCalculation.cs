@@ -17,7 +17,7 @@ namespace DataProcessingApplication
 
         public static int WeightEngl { get; set; } = 25;
 
-        public static int calcAverageAll(StudentModel studentModel)
+        public static int CalcAverageAll(StudentModel studentModel)
         {
             int mathAverage = studentModel.Math    * WeightMath / 100;
             int physAverage = studentModel.Physics * WeightPhys / 100;
@@ -26,7 +26,7 @@ namespace DataProcessingApplication
             return mathAverage + physAverage + englAverage;
         }
 
-        public static int calcAverageMath(List<StudentModel> students)
+        public static int CalcAverageMath(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -40,7 +40,7 @@ namespace DataProcessingApplication
 
         }
 
-        public static int calcAveragePhys(List<StudentModel> students)
+        public static int CalcAveragePhys(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -54,7 +54,7 @@ namespace DataProcessingApplication
 
         }
 
-        public static int calcAverageEngl(List<StudentModel> students)
+        public static int CalcAverageEngl(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -68,7 +68,7 @@ namespace DataProcessingApplication
 
         }
 
-        public static double calcMedianAll(List<StudentModel> students)
+        public static double CalcMedianAll(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -80,7 +80,7 @@ namespace DataProcessingApplication
                     allNumbers.Add(student.English);
                 }
 
-                return calcMedian(allNumbers);
+                return CalcMedian(allNumbers);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace DataProcessingApplication
 
         }
 
-        public static double calcMedianMath(List<StudentModel> students)
+        public static double CalcMedianMath(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -99,7 +99,7 @@ namespace DataProcessingApplication
                     allNumbers.Add(student.Math);
                 }
 
-                return calcMedian(allNumbers);
+                return CalcMedian(allNumbers);
             }
             else
             {
@@ -108,7 +108,7 @@ namespace DataProcessingApplication
 
         }
 
-        public static double calcMedianPhys(List<StudentModel> students)
+        public static double CalcMedianPhys(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -118,7 +118,7 @@ namespace DataProcessingApplication
                     allNumbers.Add(student.Physics);
                 }
 
-                return calcMedian(allNumbers);
+                return CalcMedian(allNumbers);
             }
             else
             {
@@ -127,7 +127,7 @@ namespace DataProcessingApplication
 
         }
 
-        public static double calcMedianEngl(List<StudentModel> students)
+        public static double CalcMedianEngl(List<StudentModel> students)
         {
             if (students.Count() > 0)
             {
@@ -137,7 +137,7 @@ namespace DataProcessingApplication
                     allNumbers.Add(student.English);
                 }
 
-                return calcMedian(allNumbers);
+                return CalcMedian(allNumbers);
             }
             else
             {
@@ -146,7 +146,7 @@ namespace DataProcessingApplication
 
         }
 
-        private static double calcMedian(List<int> inputNumbers)
+        private static double CalcMedian(List<int> inputNumbers)
         {
             //order list
             inputNumbers = inputNumbers.OrderBy(i => i).ToList();
@@ -168,7 +168,7 @@ namespace DataProcessingApplication
             return median;
         }
 
-        public static List<int> calcModusMath(List<StudentModel> students)
+        public static List<int> CalcModusMath(List<StudentModel> students)
         {
             var groupedMath = students.GroupBy(s => s.Math).OrderByDescending(g => g.Count());
             int occurCountMath = groupedMath.FirstOrDefault().Count();
@@ -176,7 +176,7 @@ namespace DataProcessingApplication
             return modusMath;
         }
 
-        public static List<int> calcModusPhys(List<StudentModel> students)
+        public static List<int> CalcModusPhys(List<StudentModel> students)
         {
             var groupedPhys = students.GroupBy(s => s.Physics).OrderByDescending(g => g.Count());
             int occurCountPhys = groupedPhys.FirstOrDefault().Count();
@@ -184,7 +184,7 @@ namespace DataProcessingApplication
             return modusPhys;
         }
 
-        public static List<int> calcModusEngl(List<StudentModel> students)
+        public static List<int> CalcModusEngl(List<StudentModel> students)
         {
             var groupedEngl = students.GroupBy(s => s.English).OrderByDescending(g => g.Count());
             int occurCountEngl = groupedEngl.FirstOrDefault().Count();

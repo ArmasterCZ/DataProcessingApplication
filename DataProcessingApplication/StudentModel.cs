@@ -30,7 +30,7 @@ namespace DataProcessingApplication
         /// check if all int was set to 0-100, and have a name.
         /// </summary>
         /// <returns>if object is valid</returns>
-        public bool isValid()
+        public bool IsValid()
         {
             bool isValid = true;
             if (String.IsNullOrEmpty(Name))

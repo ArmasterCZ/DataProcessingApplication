@@ -51,15 +51,15 @@ namespace DataProcessingApplication
         /// <param name="group"></param>
         public void LoadData(StudentGroup group)
         {
-            this.AverageMath = StudentCalculation.calcAverageMath(group.StudentList);
-            this.AveragePhysics = StudentCalculation.calcAveragePhys(group.StudentList);
-            this.AverageEnglish = StudentCalculation.calcAverageEngl(group.StudentList);
-            this.MedianMath = StudentCalculation.calcMedianMath(group.StudentList);
-            this.MedianPhysics = StudentCalculation.calcMedianPhys(group.StudentList);
-            this.MedianEnglish = StudentCalculation.calcMedianEngl(group.StudentList);
-            this.ModusMath = StudentCalculation.calcModusMath(group.StudentList);
-            this.ModusPhysics = StudentCalculation.calcModusPhys(group.StudentList);
-            this.ModusEnglish = StudentCalculation.calcModusEngl(group.StudentList);
+            this.AverageMath = StudentCalculation.CalcAverageMath(group.StudentList);
+            this.AveragePhysics = StudentCalculation.CalcAveragePhys(group.StudentList);
+            this.AverageEnglish = StudentCalculation.CalcAverageEngl(group.StudentList);
+            this.MedianMath = StudentCalculation.CalcMedianMath(group.StudentList);
+            this.MedianPhysics = StudentCalculation.CalcMedianPhys(group.StudentList);
+            this.MedianEnglish = StudentCalculation.CalcMedianEngl(group.StudentList);
+            this.ModusMath = StudentCalculation.CalcModusMath(group.StudentList);
+            this.ModusPhysics = StudentCalculation.CalcModusPhys(group.StudentList);
+            this.ModusEnglish = StudentCalculation.CalcModusEngl(group.StudentList);
         }
 
     }

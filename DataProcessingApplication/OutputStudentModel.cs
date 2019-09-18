@@ -41,7 +41,7 @@ namespace DataProcessingApplication
             this.Math    = studentModel.Math;
             this.Physics = studentModel.Physics;
             this.English = studentModel.English;
-            this.Average = StudentCalculation.calcAverageAll(studentModel);
+            this.Average = StudentCalculation.CalcAverageAll(studentModel);
         }
     }
 }

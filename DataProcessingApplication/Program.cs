@@ -12,19 +12,19 @@ namespace DataProcessingApplication
         static void Main(string[] args)
         {
             //check input
-            List<string> input = validateUserInput(args);
+            List<string> input = ValidateUserInput(args);
             if (input.Count == 2)
             {
                 //load file
-                List<StudentGroup> loadedGroups = loadFile(args[0]);
-                displayInformation(loadedGroups);
+                List<StudentGroup> loadedGroups = LoadFile(args[0]);
+                DisplayInformation(loadedGroups);
 
                 //transform and calculate
-                OutputModel outputModel = transformToOutput(loadedGroups);
+                OutputModel outputModel = TransformToOutput(loadedGroups);
 
                 //save file
                 string filePath = AppDomain.CurrentDomain.BaseDirectory;
-                saveFile(filePath, input[1], "all", outputModel);
+                SaveFile(filePath, input[1], "all", outputModel);
             }
         }
 
@@ -32,7 +32,7 @@ namespace DataProcessingApplication
         /// validate if file exist and what output is requested
         /// </summary>
         /// <returns>list[0] == path, list[1] == outputFormat</returns>
-        private static List<string> validateUserInput(string[] userInput)
+        private static List<string> ValidateUserInput(string[] userInput)
         {
             List<string> validatedOutput = new List<string>();
 
@@ -77,7 +77,7 @@ namespace DataProcessingApplication
         /// </summary>
         /// <param name="path">path to file with stored data</param>
         /// <returns>models from input data</returns>
-        private static List<StudentGroup> loadFile(string path)
+        private static List<StudentGroup> LoadFile(string path)
         {
             FileLoader fileLoader = new FileLoader(path);
             List<StudentGroup> loadedGroups = fileLoader.LoadFile();
@@ -87,7 +87,7 @@ namespace DataProcessingApplication
         /// <summary>
         /// show number of loaded students/groups and error in console
         /// </summary>
-        private static void displayInformation(List<StudentGroup> loadedGroups)
+        private static void DisplayInformation(List<StudentGroup> loadedGroups)
         {
             int studentCount = 0;
             int errorCount = 0;
@@ -105,7 +105,7 @@ namespace DataProcessingApplication
         /// calculate all requested statistics
         /// </summary>
         /// <returns>models ready for serialize to file</returns>
-        private static OutputModel transformToOutput(List<StudentGroup> loadedGroups)
+        private static OutputModel TransformToOutput(List<StudentGroup> loadedGroups)
         {
             OutputModel output = new OutputModel();
             output.LoadData(loadedGroups);
@@ -119,19 +119,19 @@ namespace DataProcessingApplication
         /// <param name="extension">json or xml</param>
         /// <param name="fileName">name of output file</param>
         /// <param name="loadedGroups">data for serialization</param>
-        private static void saveFile(string filePath,string extension, string fileName, OutputModel loadedGroups)
+        private static void SaveFile(string filePath,string extension, string fileName, OutputModel loadedGroups)
         {
             string fullpath;
             switch (extension)
             {
                 case "xml":
                     fullpath = Path.Combine(filePath, fileName + ".xml");
-                    FileSaver.serialToXmlFile(fullpath, loadedGroups);
+                    FileSaver.SerialToXmlFile(fullpath, loadedGroups);
                     Console.WriteLine($"File saved to {fullpath}");
                     break;
                 case "json":
                     fullpath = Path.Combine(filePath, fileName + ".json");
-                    FileSaver.serialToJsonFile(fullpath, loadedGroups);
+                    FileSaver.SerialToJsonFile(fullpath, loadedGroups);
                     Console.WriteLine($"File saved to {fullpath}");
                     break;
                 default:

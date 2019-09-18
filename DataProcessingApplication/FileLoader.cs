@@ -13,11 +13,11 @@ namespace DataProcessingApplication
     /// </summary>
     class FileLoader
     {
-        public string _FilePath { get; set; }
+        public string FilePath { get; set; }
 
         public FileLoader(string filePath)
         {
-            _FilePath = filePath;
+            FilePath = filePath;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace DataProcessingApplication
             List<StudentGroup> groups = new List<StudentGroup>();
             StudentGroup currentGroup = new StudentGroup();
 
-            using (StreamReader sr = new StreamReader(_FilePath))
+            using (StreamReader sr = new StreamReader(FilePath))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -58,7 +58,7 @@ namespace DataProcessingApplication
                     } else
                     {
                         //add student to group (or save exception)
-                        addStudentToGroup(line, ref currentGroup);
+                        AddStudentToGroup(line, currentGroup);
                         previousLineWasEmpty = false;
                     }
 
@@ -85,7 +85,7 @@ namespace DataProcessingApplication
         /// </summary>
         /// <param name="line">string like "George Faust;Math=11;Physics=50;English=42"</param>
         /// <returns>filled model</returns>
-        private StudentModel transformStringToStudent(string line)
+        private StudentModel TransformStringToStudent(string line)
         {
             //splited line to Name/Math/Physics/English
             List<string> splitedLine = line.Split(';').ToList();
@@ -103,7 +103,7 @@ namespace DataProcessingApplication
                     //other parts of line are matched by subject from (subject=value)
                     try
                     {
-                        subdivisionOfSubjects(splitedLine[i], ref studentModel);
+                        SubdivisionOfSubjects(splitedLine[i], studentModel);
                     }
                     catch (Exception)
                     {
@@ -120,7 +120,7 @@ namespace DataProcessingApplication
         /// </summary>
         /// <param name="splitedLine">part of the line like "Physics=50" or "Math=11"</param>
         /// <param name="studentModel">filled model</param>
-        private void subdivisionOfSubjects(string splitedLine, ref StudentModel studentModel)
+        private void SubdivisionOfSubjects(string splitedLine, StudentModel studentModel)
         {
             string[] splitedSegment = splitedLine.Split('=');
             if (splitedSegment.Length == 2)
@@ -151,13 +151,13 @@ namespace DataProcessingApplication
         /// </summary>
         /// <param name="line">string like "George Faust;Math=11;Physics=50;English=42"</param>
         /// <param name="currentGroup">existing group of students</param>
-        private void addStudentToGroup(string line, ref StudentGroup currentGroup)
+        private void AddStudentToGroup(string line, StudentGroup currentGroup)
         {
             //add student to group (or save exception)
             try
             {
-                var student = transformStringToStudent(line);
-                if (student.isValid())
+                var student = TransformStringToStudent(line);
+                if (student.IsValid())
                 {
                     currentGroup.StudentList.Add(student);
                 }
